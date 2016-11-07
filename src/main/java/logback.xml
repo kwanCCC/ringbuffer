@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="20 seconds">
+	<property name="LOG_HOME" value="/home/kwan/tmp" />
+
+	<appender name="main" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}/conuter.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/conuter.log-%d{yyyy-MM-dd}</FileNamePattern>
+			<MaxHistory>3</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d{HH:mm:ss.SSS} %class %-5level %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<root level="INFO">
+		<appender-ref ref="main" />
+	</root>
+</configuration> 
